@@ -1,0 +1,7 @@
+#Подключение к БД
+db:
+  host: localhost
+  port: 5433
+  instance: postgres
+  username: postgres
+  password: postgres

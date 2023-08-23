@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+
+#  profiles:
+#    active: @activeProfile@
+#
+##Настройка логирования из pom.xml
+#logging:
+#  config: classpath:@loggingConfigFile@

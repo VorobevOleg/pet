@@ -1,0 +1,40 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:15
+    domainname: postgres
+#    volumes:
+#      - ./postgres/data/db:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-U", "postgres" ]
+      interval: 5s
+      timeout: 1s
+      retries: 2
+
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://postgres:5432/postgres -schemas=public -user=postgres -password=postgres -connectRetries=30 migrate
+    volumes:
+      - ./flyway:/flyway/sql
+    depends_on:
+      - postgres
+    ports:
+      - "7500:7500"
+
+  rabbitmq:
+    image: rabbitmq:3.12.2-management
+    hostname: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log_levels [{connection,error},{default,error}] disk_free_limit 1073741824
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
+    ports:
+      - 15672:15672
