@@ -1,10 +1,19 @@
 server:
   port: 8081
 
+external:
+  api:
+    get:
+      currensy-rate:
+        url: https://www.cbr-xml-daily.ru/daily_json.js
 
-#  profiles:
-#    active: @activeProfile@
-#
+inside:
+  api:
+    post:
+      currensy-rate:
+        url: http://localhost:8080/currensy-rate
+
+
 ##Настройка логирования из pom.xml
 #logging:
 #  config: classpath:@loggingConfigFile@
