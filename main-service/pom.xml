@@ -47,6 +47,11 @@
             <version>${postgresql.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>ru.vorobev</groupId>
+            <artifactId>api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
