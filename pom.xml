@@ -21,6 +21,7 @@
         <postgresql.version>42.6.0</postgresql.version>
         <lombok.version>1.18.28</lombok.version>
         <jackson.version>2.15.2</jackson.version>
+        <spring.amqp.version>3.0.8</spring.amqp.version>
     </properties>
 
     <modules>
