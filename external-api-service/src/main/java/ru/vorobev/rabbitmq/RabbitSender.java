@@ -21,6 +21,7 @@ public class RabbitSender {
         try {
             template.convertAndSend(queue.getName(), cbrDailyDto);
         } catch (Exception e) {
+            System.out.println("Error send() RabbitMQ");
             log.error("Pu-pu-pu : ", e);
             return;
         }

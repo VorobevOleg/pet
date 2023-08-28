@@ -6,7 +6,7 @@ services:
 #    volumes:
 #      - ./postgres/data/db:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - "127.0.0.1:5433:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -38,4 +38,23 @@ services:
       - ./rabbitmq:/var/lib/rabbitmq
     ports:
       - "15672:15672"
-      - "5672:5672"
+      - "127.0.0.1:5672:5672"
+
+  main-service:
+    image: main-service
+    build:
+      context: main-service/
+    depends_on:
+      - postgres
+      - rabbitmq
+    ports:
+      - "127.0.0.1:8080:8080"
+
+  external-api-service:
+    image: external-api-service
+    build:
+      context: external-api-service/
+    depends_on:
+      - rabbitmq
+    ports:
+      - "127.0.0.1:8081:8081"
