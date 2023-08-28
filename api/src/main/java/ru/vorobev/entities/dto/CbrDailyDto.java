@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ import java.util.Map;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CbrDailyDto implements ApiDto{
+public class CbrDailyDto implements ApiDto, Serializable {
 
     @JsonAlias("Date")
     private ZonedDateTime date;

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CurrensyDto {
+public class CurrensyDto implements Serializable {
 
     @JsonAlias("ID")
     private String id;
