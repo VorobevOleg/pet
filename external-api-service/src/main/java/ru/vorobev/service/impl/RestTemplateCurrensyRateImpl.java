@@ -43,6 +43,7 @@ public class RestTemplateCurrensyRateImpl implements ExternalApiGetService, Exte
         try {
             cbrDailyDto = restTemplate.getForObject(externalCbrUrl, CbrDailyDto.class);
         } catch (Exception e) {
+            System.out.println("Error getApiDto() REST");
             log.error("Error getting cbr daily currency rate", e);
             throw e;
         }
@@ -69,6 +70,7 @@ public class RestTemplateCurrensyRateImpl implements ExternalApiGetService, Exte
         try {
             restTemplate.postForObject(mainServicePostCbrUrl, entity, String.class);
         } catch (Exception e) {
+            System.out.println("Error postApiDto() REST");
             log.error("Error posting cbr daily to main-service", e);
             throw e;
         }

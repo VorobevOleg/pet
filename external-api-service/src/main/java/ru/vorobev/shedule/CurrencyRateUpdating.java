@@ -21,7 +21,7 @@ public class CurrencyRateUpdating {
     private final ExternalApiPostService externalApiPostService;
     private final RabbitSender rabbitSender;
 
-//    @Scheduled(fixedDelay = 10000, initialDelay = 1000)    // REST
+    @Scheduled(fixedDelay = 10000, initialDelay = 1000)    // REST
     public void updateFromRestInMainService() {
 
         CbrDailyDto cbrDailyDto =  (CbrDailyDto) externalApiGetService.getApiDto();

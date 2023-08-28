@@ -1,6 +1,9 @@
 #Подключение к БД
 db:
-  host: localhost
+#  TODO: for docker
+#  host: postgres
+#  port: 5432
+  host: 127.0.0.1
   port: 5433
   instance: postgres
   username: postgres
@@ -8,7 +11,9 @@ db:
 
 #Подключение к RabbitMq
 rabbitmq:
-  host: localhost
+#  TODO: for docker
+#  host: rabbitmq
+  host: 127.0.0.1
   port: 5672
   username: admin
   password: admin
