@@ -1,4 +1,4 @@
-package ru.vorobev.entities.dto;
+package ru.vorobev.dto;
 
 /**
  * Интерфейс - маркер для объектов DTO с внешних API

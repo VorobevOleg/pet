@@ -5,7 +5,7 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.vorobev.entities.dto.CbrDailyDto;
+import ru.vorobev.dto.CbrDailyDto;
 
 @Slf4j
 @Component

@@ -3,10 +3,10 @@ package ru.vorobev.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.vorobev.entities.dto.CbrDailyDto;
+import ru.vorobev.dto.CbrDailyDto;
 
 /**
- * Контроллер дял работы с инфой о курсах валют
+ * Контроллер для работы с инфой о курсах валют
  */
 @RestController
 @RequestMapping("/currensy-rate")

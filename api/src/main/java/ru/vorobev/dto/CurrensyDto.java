@@ -1,4 +1,4 @@
-package ru.vorobev.entities.dto;
+package ru.vorobev.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Getter;
