@@ -14,13 +14,13 @@ import ru.vorobev.services.CurrencyRateService;
 @RestController
 @RequestMapping("/currensy-rate")
 @RequiredArgsConstructor
-public class CurrensyRateController {
+public class CurrencyRateController {
 
     private final CurrencyRateService currencyRateService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveNewCurrensyRateToDb(@RequestBody CbrDailyDto cbrDailyDto) {
+    public void saveNewCurrencyRateToDb(@RequestBody CbrDailyDto cbrDailyDto) {
         log.debug("REST: Saving in DB CbrDailyDto timestamp: '{}'", cbrDailyDto.getTimestamp());
         currencyRateService.saveCbrDailyDto(cbrDailyDto);
         log.debug("REST: Saved in DB CbrDailyDto timestamp: '{}'", cbrDailyDto.getTimestamp());

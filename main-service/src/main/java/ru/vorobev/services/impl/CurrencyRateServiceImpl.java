@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.vorobev.converters.DtoConverter;
 import ru.vorobev.dto.CbrDailyDto;
-import ru.vorobev.dto.CurrensyDto;
+import ru.vorobev.dto.CurrencyDto;
 import ru.vorobev.entities.CurrencyRate;
 import ru.vorobev.repositories.CurrencyRateRepository;
 import ru.vorobev.services.CurrencyRateService;
@@ -29,7 +29,7 @@ public class CurrencyRateServiceImpl implements CurrencyRateService {
         Map<String, CurrencyRate> actualCurrencyRateMap = new HashMap<>();
         actualCurrencyRateList.forEach(curRate -> actualCurrencyRateMap.put(curRate.getCurrency().getId(), curRate));
 
-        List<CurrensyDto> currencyDtoList = cbrDailyDto.getCurrensyMap().values().stream().toList();
+        List<CurrencyDto> currencyDtoList = cbrDailyDto.getCurrensyMap().values().stream().toList();
 
         List<CurrencyRate> currencyRateListToSave = currencyDtoList.stream()
                 .filter(curDto -> !actualCurrencyRateMap.containsKey(curDto.getId()))

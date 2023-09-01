@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CurrensyDto implements Serializable {
+public class CurrencyDto implements Serializable {
 
     @JsonAlias("ID")
     private String id;
