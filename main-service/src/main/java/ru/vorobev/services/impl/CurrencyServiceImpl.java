@@ -1,7 +1,10 @@
 package ru.vorobev.services.impl;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.vorobev.converters.DtoConverter;
 import ru.vorobev.dto.CurrencyDto;
@@ -21,6 +24,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     private final DtoConverter dtoConverter;
 
     @Override
+    @Cacheable("currencies")
     public List<Currency> getAllCurrency() {
         return currencyRepository.findAll();
     }
@@ -31,14 +35,16 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public void deleteCurrency(String id) {
+    @CacheEvict("currencies")
+    public void deleteAndEvictCurrency(String id) {
         currencyRepository.deleteById(id);
     }
 
     @Override
     public void updateCurrency(CurrencyDto currencyDto) {
 
-        Currency currencyFromDb = currencyRepository.findById(currencyDto.getId()).orElseThrow();
+        Currency currencyFromDb = currencyRepository.findById(currencyDto.getId()).orElseThrow(
+                () -> new EntityNotFoundException("Currency not found by id: " + currencyDto.getId()));
 
         Currency currencyToSave = dtoConverter.to(currencyDto);
 

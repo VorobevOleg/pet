@@ -29,7 +29,7 @@ public interface CurrencyService {
      *
      * @param id - id валюты
      */
-    void deleteCurrency(String id);
+    void deleteAndEvictCurrency(String id);
 
     /**
      * Получение списка всех валют из базы

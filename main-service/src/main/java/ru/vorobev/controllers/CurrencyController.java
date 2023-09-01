@@ -40,7 +40,7 @@ public class CurrencyController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteCurrency(@PathVariable String id) {
-        currencyService.deleteCurrency(id);
+        currencyService.deleteAndEvictCurrency(id);
     }
 
 }
