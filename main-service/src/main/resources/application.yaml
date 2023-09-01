@@ -3,18 +3,15 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://${db.host}:${db.port}/${db.instance}
+    url: jdbc:postgresql://${db.host}:${db.port}/${db.instance}?reWriteBatchedInserts=true
     username: ${db.username}
     password: ${db.password}
 
   jpa:
-    show-sql: true
+#    show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-#  profiles:
-#    active: @activeProfile@
-#
-##Настройка логирования из pom.xml
-#logging:
-#  config: classpath:@loggingConfigFile@
+#        generate_statistics: true
+        jdbc.batch_size: 100
+        order_inserts: true
