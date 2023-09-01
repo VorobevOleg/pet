@@ -32,6 +32,6 @@ public class CbrDailyDto implements ApiDto, Serializable {
     private ZonedDateTime timestamp;
 
     @JsonAlias("Valute")
-    private Map<String, CurrensyDto> currensyMap;
+    private Map<String, CurrencyDto> currensyMap;
 
 }
