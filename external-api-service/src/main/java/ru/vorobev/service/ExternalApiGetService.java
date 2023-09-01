@@ -1,6 +1,6 @@
 package ru.vorobev.service;
 
-import ru.vorobev.entities.dto.ApiDto;
+import ru.vorobev.dto.ApiDto;
 
 /**
  * Сервис для получения информации с внешних API

@@ -9,8 +9,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.vorobev.entities.dto.ApiDto;
-import ru.vorobev.entities.dto.CbrDailyDto;
+import ru.vorobev.dto.ApiDto;
+import ru.vorobev.dto.CbrDailyDto;
 import ru.vorobev.service.ExternalApiGetService;
 import ru.vorobev.service.ExternalApiPostService;
 
