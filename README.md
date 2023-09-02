@@ -4,7 +4,7 @@
 
 # Target
 
-Show your ability to solve tasks ( in this case, set yourself :) )
+Show my ability to solve tasks ( in this case, set yourself :) )
 
 # Description
 
