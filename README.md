@@ -12,7 +12,21 @@ External API service collects information on open APIs, such as currency rates o
 
 # Architecture
 
-![Pet project architecture image](https://disk.yandex.ru/i/2bSS6Ug3QKBqcg)
+[Pet project architecture image](https://disk.yandex.ru/i/2bSS6Ug3QKBqcg)
+
+# Technology stack
+
+* Java 19
+* Maven
+* Spring Boot
+* Spring Web Service
+* Spring WebFlux
+* Spring Data JPA
+* Lombok
+* Docker
+* PostgreSQL
+* Flyway Migration
+* RabbitMQ
 
 # For start
 
