@@ -12,7 +12,7 @@ External API service collects information on open APIs, such as currency rates o
 
 # Architecture
 
-![Pet project architecture image](https://github.com/VorobevOleg/images/main/pet%20sheme.png)
+![Pet project architecture image](https://raw.githubusercontent.com/VorobevOleg/images/main/pet%20sheme.png)
 
 # Technology stack
 
