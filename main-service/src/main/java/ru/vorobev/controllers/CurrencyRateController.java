@@ -12,7 +12,7 @@ import ru.vorobev.services.CurrencyRateService;
  */
 @Slf4j
 @RestController
-@RequestMapping("/currensy-rate")
+@RequestMapping("/currency-rate")
 @RequiredArgsConstructor
 public class CurrencyRateController {
 

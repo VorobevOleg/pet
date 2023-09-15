@@ -16,7 +16,7 @@ public class DtoConverter {
         currency.setId(currencyDto.getId());
         currency.setNumCode(currencyDto.getNumCode());
         currency.setCharCode(currencyDto.getCharCode());
-        currency.setNominal(currency.getNominal());
+        currency.setNominal(currencyDto.getNominal());
         currency.setName(currencyDto.getName());
 
         return currency;

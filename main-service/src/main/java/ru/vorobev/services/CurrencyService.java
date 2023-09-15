@@ -21,8 +21,9 @@ public interface CurrencyService {
      * Сохранение новой валюты в базу
      *
      * @param currencyDto - пришедший с контроллера объект с инфой для создания новой валюты
+     * @return {@link Currency} - успешно сохранненная в БД валюта
      */
-    void saveCurrency(CurrencyDto currencyDto);
+    Currency saveCurrency(CurrencyDto currencyDto);
 
     /**
      * Удаление валюты из базы по id
