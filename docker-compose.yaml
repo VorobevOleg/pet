@@ -3,10 +3,9 @@ services:
   postgres:
     image: postgres:15
     domainname: postgres
+#    restart: always
 #    volumes:
 #      - ./postgres/data/db:/var/lib/postgresql/data
-    ports:
-      - "127.0.0.1:5433:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -15,7 +14,8 @@ services:
       interval: 5s
       timeout: 1s
       retries: 2
-
+    ports:
+      - "127.0.0.1:5433:5432"
   flyway:
     image: flyway/flyway
     command: -url=jdbc:postgresql://postgres:5432/postgres -schemas=public -user=postgres -password=postgres -connectRetries=30 migrate
@@ -29,7 +29,7 @@ services:
   rabbitmq:
     image: rabbitmq:3.12.2-management
     hostname: rabbitmq
-    restart: always
+#    restart: always
     environment:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=admin

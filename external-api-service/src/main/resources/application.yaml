@@ -12,5 +12,5 @@ inside:
     post:
       currensy-rate:
 #  TODO: for docker
-#        url: http://main-service:8080/currensy-rate
-        url: http://127.0.0.1:8080/currensy-rate
+#        url: http://main-service:8080/currency-rate
+        url: http://127.0.0.1:8080/currency-rate

@@ -13,7 +13,7 @@ import java.util.List;
  * Контроллер для работы с валютами
  */
 @RestController
-@RequestMapping("/currensy")
+@RequestMapping("/currency")
 @RequiredArgsConstructor
 public class CurrencyController {
 

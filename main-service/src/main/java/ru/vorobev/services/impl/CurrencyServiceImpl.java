@@ -30,8 +30,8 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public void saveCurrency(CurrencyDto currencyDto) {
-        currencyRepository.save(dtoConverter.to(currencyDto));
+    public Currency saveCurrency(CurrencyDto currencyDto) {
+        return currencyRepository.save(dtoConverter.to(currencyDto));
     }
 
     @Override
@@ -46,12 +46,13 @@ public class CurrencyServiceImpl implements CurrencyService {
         Currency currencyFromDb = currencyRepository.findById(currencyDto.getId()).orElseThrow(
                 () -> new EntityNotFoundException("Currency not found by id: " + currencyDto.getId()));
 
-        Currency currencyToSave = dtoConverter.to(currencyDto);
+        Currency currencyFromDto = dtoConverter.to(currencyDto);
 
-        currencyFromDb.setNumCode(currencyToSave.getNumCode());
-        currencyFromDb.setCharCode(currencyToSave.getCharCode());
-        currencyFromDb.setNominal(currencyToSave.getNominal());
-        currencyFromDb.setName(currencyToSave.getName());
+        currencyFromDb.setNumCode(currencyFromDto.getNumCode());
+        currencyFromDb.setCharCode(currencyFromDto.getCharCode());
+        currencyFromDb.setNominal(currencyFromDto.getNominal());
+        currencyFromDb.setName(currencyFromDto.getName());
 
+        currencyRepository.save(currencyFromDb);
     }
 }
