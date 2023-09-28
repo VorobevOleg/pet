@@ -22,6 +22,7 @@ External API service collects information on open APIs, such as currency rates o
 * Spring Web Service
 * Spring WebFlux
 * Spring Data JPA
+* Spring Cache
 * Lombok
 * Docker
 * PostgreSQL
