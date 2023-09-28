@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.vorobev.converters.DtoConverter;
-import ru.vorobev.dto.CurrencyDto;
 import ru.vorobev.entities.Currency;
 import ru.vorobev.repositories.CurrencyRepository;
 
@@ -23,19 +22,19 @@ class CurrencyServiceImplTest {
     @Autowired
     private DtoConverter dtoConverter;
 
-    private static CurrencyDto testCurrencyDto;
-    private static CurrencyDto testCurrencyDtoToUpdate;
+    private static Currency testCurrency;
+    private static Currency testCurrencyToUpdate;
 
     @BeforeAll
     private static void init() {
-        testCurrencyDto = CurrencyDto.builder()
+        testCurrency = Currency.builder()
                 .id("Test")
                 .numCode(999)
                 .charCode("TES")
                 .nominal(1)
                 .name("Test currency")
                 .build();
-        testCurrencyDtoToUpdate = CurrencyDto.builder()
+        testCurrencyToUpdate = Currency.builder()
                 .id("Test")
                 .numCode(998)
                 .charCode("TET")
@@ -46,20 +45,20 @@ class CurrencyServiceImplTest {
 
     @Test
     void getAllCurrencyFromDb_findAll_notEmptyResponse() {
-        List<Currency> currencyList = service.getAllCurrency();
+        List<Currency> currencyList = service.getAll();
         assertNotNull(currencyList);
         assertFalse(currencyList.isEmpty());
     }
 
     @Test
     void saveCurrencyToDb_saveCurrency_allFieldsCorrectSaved() {
-        Currency currency = service.saveCurrency(testCurrencyDto);
+        Currency currency = service.saveAndRefreshCache(testCurrency);
         assertNotNull(currency);
-        assertEquals(currency.getId(), testCurrencyDto.getId());
-        assertEquals(currency.getNumCode(), testCurrencyDto.getNumCode());
-        assertEquals(currency.getCharCode(), testCurrencyDto.getCharCode());
-        assertEquals(currency.getNominal(), testCurrencyDto.getNominal());
-        assertEquals(currency.getName(), testCurrencyDto.getName());
+        assertEquals(currency.getId(), testCurrency.getId());
+        assertEquals(currency.getNumCode(), testCurrency.getNumCode());
+        assertEquals(currency.getCharCode(), testCurrency.getCharCode());
+        assertEquals(currency.getNominal(), testCurrency.getNominal());
+        assertEquals(currency.getName(), testCurrency.getName());
     }
 
     @Test

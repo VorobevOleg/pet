@@ -1,6 +1,5 @@
 package ru.vorobev.services;
 
-import ru.vorobev.dto.CurrencyDto;
 import ru.vorobev.entities.Currency;
 
 import java.util.List;
@@ -13,29 +12,38 @@ public interface CurrencyService {
     /**
      * Получение списка всех валют из базы
      *
-     * @return  - список {@link Currency}
+     * @return  список {@link Currency}
      */
-    List<Currency> getAllCurrency();
+    List<Currency> getAll();
+
+    /**
+     * Получение валюты {@link Currency} по id
+     *
+     * @param id id валюты
+     * @return {@link Currency}, найденная по id
+     */
+    Currency getById(String id);
 
     /**
      * Сохранение новой валюты в базу
      *
-     * @param currencyDto - пришедший с контроллера объект с инфой для создания новой валюты
+     * @param currency пришедший с контроллера объект с инфой для создания новой валюты
      * @return {@link Currency} - успешно сохранненная в БД валюта
      */
-    Currency saveCurrency(CurrencyDto currencyDto);
+    Currency saveAndRefreshCache(Currency currency);
 
     /**
      * Удаление валюты из базы по id
      *
-     * @param id - id валюты
+     * @param id id валюты
      */
-    void deleteAndEvictCurrency(String id);
+    void deleteAndEvict(String id);
 
     /**
-     * Получение списка всех валют из базы
+     * Обновление валюты в базе
      *
-     * @param currencyDto - пришедший с контроллера объект с инфой для обновления существующей валюты
+     * @param currency пришедший с контроллера объект с инфой для обновления валюты
+     * @return {@link Currency} - успешно обновленная в БД валюта
      */
-    void updateCurrency(CurrencyDto currencyDto);
+    Currency updateAndRefreshCache(Currency currency);
 }
